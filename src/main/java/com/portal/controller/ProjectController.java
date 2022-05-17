@@ -28,6 +28,7 @@ public class ProjectController {
     public List<Project> getProjects(){
         return projectService.getProjects();
     }
+
     @PostMapping("/addTechLead")
     public ProjectTechLeadResponse addTechLead(@RequestParam long projectId, @RequestParam long employeeId){
         return projectService.addTechLead(projectId,employeeId);
@@ -43,5 +44,14 @@ public class ProjectController {
     @GetMapping("/getByName")
     public List<ProjectResponse> getByName(@RequestParam String name){
         return projectService.getByName(name);
+    }
+
+    @GetMapping("/getAllCustomers")
+    public List<CustomerMicroResponse> getAllCustomers(){
+        return projectService.getAllCustomers();
+    }
+    @GetMapping("/getCustomerById")
+    public Object getCustomerById(@RequestParam String id){
+        return projectService.getCustomerById(id);
     }
 }
